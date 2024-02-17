@@ -1,0 +1,13 @@
+.musicplayer-section {
+    /* position: relative; */
+    /* background-color: rgb(118, 118, 118); */
+    min-width: 90%;
+    height: 90vh;
+    margin-right: 100px;
+    /* position: fixed; */
+    bottom: 0;
+    z-index: 101;
+    display: flex;
+    gap: 20px;
+    position: relative;
+}

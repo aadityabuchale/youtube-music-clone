@@ -17,7 +17,7 @@ const Library = () => {
 
             <div className="liked-music-card">
                 <div className="image">
-                    <img src="./images/liked-music.png" alt="" />
+                    <img src="/images/liked-music.png" alt="" />
                 </div>
                 <div className="liked-card-text">
                     <p>Your Likes</p>

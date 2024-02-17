@@ -5,7 +5,7 @@ function SearchPageNoResultsFound({ searchInput }) {
     return (
         <section className="noresults-container">
             <img
-                src="./images/noresults.png"
+                src="/images/noresults.png"
                 alt="noresult_png"
                 className="no-results-img"
             />

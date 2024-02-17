@@ -15,8 +15,12 @@
     /* background-color: aqua; */
 }
 
-.rmusic-card .rimage:hover {
-    opacity: 0.7;
+.rmusic-card .rimage img {
+    opacity: 0.9;
+}
+
+.rmusic-card .rimage:hover img {
+    opacity: 0.5;
 }
 
 .rmusic-card .rimage img {

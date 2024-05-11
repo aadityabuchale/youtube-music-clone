@@ -1,8 +1,8 @@
 .youtube-music-app {
-    width: 100%;
-    background-color: var(--primary-color);
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    position: relative;
+	width: 100%;
+	background-color: var(--primary-color);
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	position: relative;
 }

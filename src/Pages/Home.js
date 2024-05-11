@@ -6,60 +6,60 @@ import MusicCarousel from "../Components/Common_Components/Carousel/MusicCarouse
 import LikeDislikeClickModal from "../Components/Common_Components/LikeDislikeClickModal";
 
 function Home() {
-    const activities = ["Relax", "Energize", "Commute", "Workout", "Focus"];
+	const activities = ["Relax", "Energize", "Commute", "Workout", "Focus"];
 
-    return (
-        <section className="home-section">
-            {/* adding all activities button */}
-            <div className="button-container">
-                {activities.map((activity, idx) => {
-                    return <Buttons key={idx} activity={activity}></Buttons>;
-                })}
-            </div>
+	return (
+		<section className='home-section'>
+			{/* adding all activities button */}
+			<div className='button-container'>
+				{activities.map((activity, idx) => {
+					return <Buttons key={idx} activity={activity}></Buttons>;
+				})}
+			</div>
 
-            <MusicCarousel
-                heading={"Recommanded Music Videos"}
-                musicType="trendSong"
-                cardType="rectangle"
-            />
-            <MusicCarousel
-                heading={"New Releases"}
-                musicType={"newRelease"}
-                cardType={"square"}
-            />
-            <ArtistsBanner />
-            <MusicCarousel
-                heading={"Top Artists"}
-                musicType={"stars"}
-                cardType={"square"}
-            />
-            <MusicCarousel
-                heading={"Trending Songs"}
-                musicType={"trendSong"}
-                cardType={"smallSize"}
-            />
-            <MusicCarousel
-                heading={"Romance Right Now"}
-                musicType={"romantic"}
-                cardType={"rectangle"}
-            />
-            <MusicCarousel
-                heading={"Let's Party"}
-                musicType={"happy"}
-                cardType={"square"}
-            />
-            <MusicCarousel
-                heading={"Quick Picks"}
-                musicType={"newRelease"}
-                cardType={"smallSize"}
-            />
-            <MusicCarousel
-                heading={"Wistful Melodies"}
-                musicType={"sad"}
-                cardType={"square"}
-            />
-        </section>
-    );
+			<MusicCarousel
+				heading={"Recommanded Music Videos"}
+				musicType='trendSong'
+				cardType='rectangle'
+			/>
+			<MusicCarousel
+				heading={"New Releases"}
+				musicType={"newRelease"}
+				cardType={"square"}
+			/>
+			<ArtistsBanner />
+			<MusicCarousel
+				heading={"Top Artists"}
+				musicType={"stars"}
+				cardType={"square"}
+			/>
+			<MusicCarousel
+				heading={"Trending Songs"}
+				musicType={"trendSong"}
+				cardType={"smallSize"}
+			/>
+			<MusicCarousel
+				heading={"Romance Right Now"}
+				musicType={"romantic"}
+				cardType={"rectangle"}
+			/>
+			<MusicCarousel
+				heading={"Let's Party"}
+				musicType={"happy"}
+				cardType={"square"}
+			/>
+			<MusicCarousel
+				heading={"Quick Picks"}
+				musicType={"newRelease"}
+				cardType={"smallSize"}
+			/>
+			<MusicCarousel
+				heading={"Wistful Melodies"}
+				musicType={"sad"}
+				cardType={"square"}
+			/>
+		</section>
+	);
 }
 
 export default Home;

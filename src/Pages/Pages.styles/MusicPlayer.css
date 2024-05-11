@@ -1,13 +1,19 @@
 .musicplayer-section {
-    /* position: relative; */
-    /* background-color: rgb(118, 118, 118); */
-    min-width: 90%;
-    height: 90vh;
-    margin-right: 100px;
-    /* position: fixed; */
-    bottom: 0;
-    z-index: 101;
-    display: flex;
-    gap: 20px;
-    position: relative;
+	/* position: relative; */
+	/* background-color: rgb(118, 118, 118); */
+	width: 100%;
+	height: 90vh;
+	/* position: fixed; */
+	bottom: 0;
+	z-index: 101;
+	display: flex;
+	gap: 20px;
+	position: relative;
+}
+
+@media screen and (max-width: 768px) {
+	.musicplayer-section {
+		flex-direction: column;
+		align-items: center;
+	}
 }

@@ -6,104 +6,111 @@ import addHistoryInLocalStorage from "../utils/addHistoryInLocalStorage";
 const MusicLogic = createContext();
 
 function MusicLogicsProvider({ children }) {
-    const navigate = useNavigate();
+	const navigate = useNavigate();
 
-    // ----------- start of search functionality --------------------
-    const intialSearchState = {
-        searchPageStatus: "inactive",
-        searchResultBoxStatus: "inactive",
-        searchInput: "",
-        artistsResult: [],
-        songsResult: [],
-        albumsResult: [],
-    };
+	// ----------- start of search functionality --------------------
+	const intialSearchState = {
+		searchPageStatus: "inactive",
+		searchResultBoxStatus: "inactive",
+		searchInput: "",
+		artistsResult: [],
+		songsResult: [],
+		albumsResult: [],
+		navExpanded: false,
+	};
 
-    function searchReducer(state, action) {
-        switch (action.type) {
-            case "setSearchInput":
-                return { ...state, searchInput: action.payload };
+	function searchReducer(state, action) {
+		switch (action.type) {
+			case "setSearchInput":
+				return { ...state, searchInput: action.payload };
 
-            case "setartistsResult":
-                return {
-                    ...state,
-                    artistsResult: !action.payload ? [] : action.payload,
-                };
+			case "setartistsResult":
+				return {
+					...state,
+					artistsResult: !action.payload ? [] : action.payload,
+				};
 
-            case "setsongsResult":
-                return {
-                    ...state,
-                    songsResult: !action.payload ? [] : action.payload,
-                };
+			case "setsongsResult":
+				return {
+					...state,
+					songsResult: !action.payload ? [] : action.payload,
+				};
 
-            case "setalbumsResult":
-                return {
-                    ...state,
-                    albumsResult: !action.payload ? [] : action.payload,
-                };
+			case "setalbumsResult":
+				return {
+					...state,
+					albumsResult: !action.payload ? [] : action.payload,
+				};
 
-            case "setSearchPage":
-                return { ...state, searchPageStatus: action.payload };
+			case "setSearchPage":
+				return { ...state, searchPageStatus: action.payload };
 
-            case "setSearchResultBox":
-                return { ...state, searchResultBoxStatus: action.payload };
-        }
-    }
+			case "setSearchResultBox":
+				return { ...state, searchResultBoxStatus: action.payload };
 
-    const [searchState, searchDispatch] = useReducer(
-        searchReducer,
-        intialSearchState
-    );
+			case "setNavExpanded":
+				return {
+					...state,
+					navExpanded: state.navExpanded ? false : true,
+				};
+		}
+	}
 
-    const {
-        searchInput,
-        searchPageStatus,
-        artistsResult,
-        songsResult,
-        albumsResult,
-        searchResultBoxStatus,
-    } = searchState;
+	const [searchState, searchDispatch] = useReducer(
+		searchReducer,
+		intialSearchState
+	);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const songsData = await getSearchResult(searchInput, "song");
-            searchDispatch({ type: "setsongsResult", payload: songsData });
+	const {
+		searchInput,
+		searchPageStatus,
+		artistsResult,
+		songsResult,
+		albumsResult,
+		searchResultBoxStatus,
+	} = searchState;
 
-            const albumsData = await getSearchResult(searchInput, "album");
-            searchDispatch({ type: "setalbumsResult", payload: albumsData });
+	useEffect(() => {
+		const fetchData = async () => {
+			const songsData = await getSearchResult(searchInput, "song");
+			searchDispatch({ type: "setsongsResult", payload: songsData });
 
-            const artistsData = await getSearchResult(searchInput, "artist");
-            searchDispatch({ type: "setartistsResult", payload: artistsData });
-        };
-        fetchData();
-    }, [searchInput]);
+			const albumsData = await getSearchResult(searchInput, "album");
+			searchDispatch({ type: "setalbumsResult", payload: albumsData });
 
-    function handleSearchpageOpen() {
-        searchDispatch({
-            type: "setSearchResultBox",
-            payload: "inactive",
-        });
-        searchDispatch({ type: "setSearchPage", payload: "active" });
-        addHistoryInLocalStorage(searchInput);
-        navigate(`../searchpage/${searchInput}`);
-    }
+			const artistsData = await getSearchResult(searchInput, "artist");
+			searchDispatch({ type: "setartistsResult", payload: artistsData });
+		};
+		fetchData();
+	}, [searchInput]);
 
-    const obj = {
-        ...searchState,
-        searchDispatch,
-        handleSearchpageOpen,
-    };
+	function handleSearchpageOpen() {
+		searchDispatch({
+			type: "setSearchResultBox",
+			payload: "inactive",
+		});
+		searchDispatch({ type: "setSearchPage", payload: "active" });
+		addHistoryInLocalStorage(searchInput);
+		navigate(`../searchpage/${searchInput}`);
+	}
 
-    return <MusicLogic.Provider value={obj}>{children}</MusicLogic.Provider>;
+	const obj = {
+		...searchState,
+		searchDispatch,
+		handleSearchpageOpen,
+	};
+
+	return <MusicLogic.Provider value={obj}>{children}</MusicLogic.Provider>;
 }
 
 function useMusicLogic() {
-    const obj = useContext(MusicLogic);
+	const obj = useContext(MusicLogic);
 
-    if (obj === undefined) {
-        console.log("trying to access data outside MusicLogic context");
-    } else {
-        return obj;
-    }
+	if (obj === undefined) {
+		console.log("trying to access data outside MusicLogic context");
+	} else {
+		return obj;
+	}
 }
 
 export default MusicLogicsProvider;

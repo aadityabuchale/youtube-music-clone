@@ -1,94 +1,128 @@
 .navbar {
-    color: white;
-    font-size: 1rem;
-    display: flex;
-    padding-right: 25px;
-    padding-top: 10px;
-    flex-direction: column;
-    gap: 0.3rem;
-    border-right: 0.8px solid #2a2a2a;
-    /* background-color: red; */
-    width: 17.5%;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    min-height: 98vh;
-    transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+	background-color: var(--primary-color);
+	color: white;
+	font-size: 1rem;
+	display: flex;
+	padding-top: 10px;
+	flex-direction: column;
+	align-items: center;
+	border-right: 0.8px solid #2a2a2a;
+	/* background-color: red; */
+	width: 18%;
+	flex-shrink: 0;
+	position: sticky;
+	top: 0;
+	height: 100vh;
+	z-index: 1000;
+	transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+}
+
+.navbar-collapse {
+	border-right: transparent;
+	width: 10% !important;
+	align-items: flex-start;
+	transition: all 0.8s ease-in-out;
+}
+
+.nav-item-logo-container {
+	margin-left: 0.4rem;
 }
 
 .logo-img {
-    width: 50%;
-    height: 100%;
-}
-
-.nav-item {
-    padding: 0.625rem;
-    padding-left: 1rem;
-    display: flex;
-    gap: 1rem;
-    /* background-color: red; */
-    font-weight: 400;
-    font-size: 16px;
-    border-radius: 0.375rem;
-    width: fit-content;
-    padding-right: 6rem;
-    margin-left: 1rem;
-    transition: all 0.3s ease-in-out;
+	width: 50%;
+	height: 100%;
 }
 
 .nav-item-logo {
-    padding: 0.625rem;
-    padding-left: 1rem;
-    display: flex;
-    gap: 1rem;
-    min-width: 200px;
-    /* background-color: red; */
-    font-weight: 400;
-    font-size: 16px;
-    border-radius: 0.375rem;
-    width: fit-content;
-    padding-right: 6rem;
-    margin-left: 1rem;
-    margin-bottom: 10px;
-    cursor: pointer;
+	cursor: pointer;
 }
 
-.nav-item:hover {
-    cursor: pointer;
-    background-color: #2a2a2a !important;
-    /* background-color: #1e1e1e; */
-    transition: all 0.2s ease-in-out;
+.nav-item {
+	padding: 0.625rem;
+	display: flex;
+	gap: 1rem;
+	font-weight: 400;
+	font-size: 16px;
+	border-radius: 0.375rem;
+	width: fit-content;
+	width: 80%;
+	transition: all 0.3s ease-in-out;
 }
 
-.header-1 {
-    display: flex;
-    gap: 20px;
-}
-
-.nav-item:last-child {
-    gap: 0.8rem;
+.nav-item:hover:not(:first-child) {
+	cursor: pointer;
+	background-color: #2a2a2a !important;
+	/* background-color: #1e1e1e; */
+	transition: all 0.2s ease-in-out;
 }
 
 .nav-item-collapse {
-    display: flex;
-    width: fit-content;
-    padding: 4px 1rem 4px 1rem;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 5px;
-    margin-left: 0.4rem;
-    flex-direction: column;
-    /* background-color: rebeccapurple; */
-    font-size: 12px;
-    border-radius: 0.375rem;
-    transition: all 0.3s ease-in-out;
+	display: flex;
+	width: fit-content;
+	padding: 4px 1rem 4px 1rem;
+	align-items: center;
+	justify-content: center;
+	margin-left: 0.4rem;
+	margin-bottom: 5px;
+	flex-direction: column;
+	font-size: 12px;
+	border-radius: 0.375rem;
+	transition: all 0.3s ease-in-out;
+	background-color: var(--primary-color);
 }
 .nav-item-collapse:hover {
-    cursor: pointer;
-    background-color: #2a2a2a !important;
-    transition: all 0.2s ease-in-out;
+	cursor: pointer;
+	background-color: #2a2a2a !important;
+	transition: all 0.2s ease-in-out;
 }
 
 .active {
-    background-color: #1e1e1e;
+	background-color: #1e1e1e;
+}
+
+@media screen and (max-width: 768px) {
+	.navbar {
+		width: 30%;
+		position: fixed;
+	}
+
+	.navbar-collapse {
+		width: 0% !important;
+		overflow: hidden;
+	}
+
+	.nav-item {
+		transition: all 0.6s ease-in-out;
+	}
+
+	.nav-item-collapse {
+		padding: 0.625rem;
+		display: flex;
+		gap: 1rem;
+		font-weight: 400;
+		font-size: 16px;
+		border-radius: 0.375rem;
+		width: fit-content;
+		width: 80%;
+		transition: all 0.6s ease-in-out;
+		flex-direction: row;
+	}
+
+	.nav-item-logo {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.navbar {
+		width: 50%;
+	}
+
+	.nav-item-logo {
+		display: none !important;
+	}
 }

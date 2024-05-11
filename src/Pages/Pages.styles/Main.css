@@ -1,4 +1,11 @@
 .main {
-    min-width: 78%;
-    margin: 0px 60px;
+	min-width: 82%;
+	padding: 0 5%;
+	overflow: hidden;
+}
+
+@media screen and (max-width: 480px) {
+	.main {
+		min-width: 100%;
+	}
 }

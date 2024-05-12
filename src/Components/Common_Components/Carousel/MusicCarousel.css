@@ -1,12 +1,11 @@
 .carousel-container {
 	width: 100%;
 	height: fit-content;
-	max-height: 35vmax;
+	max-height: 50vmax;
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
 	margin-top: 20px;
-
 	margin: 40px 0px;
 }
 

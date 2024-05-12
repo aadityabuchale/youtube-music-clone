@@ -37,7 +37,7 @@ function SearchPageTopResultCard({ result }) {
 									.slice(0, 2)
 									.join(", ")}
 						</div>
-						<LargeSizeButton>Play</LargeSizeButton>
+						{/* <LargeSizeButton>Play</LargeSizeButton> */}
 					</div>
 				</div>
 			</div>

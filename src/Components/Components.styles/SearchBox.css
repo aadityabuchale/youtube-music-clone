@@ -42,6 +42,11 @@
 		width: 65%;
 		flex-shrink: 0;
 	}
+
+	.search-box {
+		padding: 0 5px;
+	}
+
 	.search-input {
 		width: 85%;
 	}

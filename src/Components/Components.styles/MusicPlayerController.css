@@ -14,13 +14,17 @@
 }
 
 .player-controls {
-	width: 20%;
+	width: 25%;
 	/* background-color: purple; */
 	padding: 10px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	gap: 20px;
+}
+
+.controller-container svg {
+	cursor: pointer;
 }
 
 .music-info {

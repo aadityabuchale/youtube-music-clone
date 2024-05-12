@@ -263,7 +263,6 @@ function MusicPlayerController() {
 				className='additional-controls'
 				onClick={handleAdditionalClick}
 			>
-				<SpeakerIcon color={"#909090"} />
 				<LoopIcon color={isLoop ? "#ffffff" : "#909090"} />
 				<ShuffleIcon color={isShuffle ? "#ffffff" : "#909090"} />
 				<ArrowDropDownIcon sx={iconStyles} className='downArrowIcon' />
